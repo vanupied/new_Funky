@@ -9,9 +9,9 @@
 #include <JeeLib.h> // https://github.com/jcw/jeelib
 #include "pins_arduino.h"
 
-//#define DEBUG //uncomment to enable serial output
+#define DEBUG //uncomment to enable serial output
 
-#define LEDpin 1
+#define LEDpin 13
 
 #define RETRY_PERIOD 1 // How soon to retry (in seconds) if ACK didn’t come in
 #define RETRY_LIMIT 5 // Maximum number of times to retry
@@ -21,8 +21,8 @@ ISR(WDT_vect) { Sleepy::watchdogEvent(); } // interrupt handler for JeeLabs Slee
 
 #include <EEPROM.h>
 
-#define freq RF12_433MHZ // Frequency of RF12B module can be RF12_433MHZ, RF12_868MHZ or RF12_915MHZ. You should use the one matching the module you have.433MHZ, RF12_868MHZ or RF12_915MHZ. You should use the one matching the module you have.
-const int myNodeID = 1; // emonTx RFM12B node ID
+#define freq RF12_868MHZ // Frequency of RF12B module can be RF12_433MHZ, RF12_868MHZ or RF12_915MHZ. You should use the one matching the module you have.433MHZ, RF12_868MHZ or RF12_915MHZ. You should use the one matching the module you have.
+const int myNodeID = 11; // emonTx RFM12B node ID
 const int network = 210;
 #define ACK false
 
@@ -54,8 +54,8 @@ long lastTX = 0;
 void setup() {
 // Because of the fuses, we are running @ 1Mhz now.
 
-pinMode(A5,OUTPUT); //Set RFM12B power control pin (REV 1)
-digitalWrite(A5,LOW); //Start the RFM12B
+pinMode(4,OUTPUT); //Set RFM12B power control pin (REV 1)
+digitalWrite(4,LOW); //Start the RFM12B
 
 pinMode(LEDpin,OUTPUT);
 digitalWrite(LEDpin,HIGH);
