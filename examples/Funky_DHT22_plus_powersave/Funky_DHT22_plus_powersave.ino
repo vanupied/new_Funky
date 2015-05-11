@@ -400,7 +400,7 @@ static void handleInput (char c) {
 }
 
 
-char helpText1[] PROGMEM = 
+const char helpText1[] PROGMEM = 
     "\n"
     "Available commands:" "\n"
     "  <nn> i     - set node ID (standard node ids are 1..26)" "\n"
